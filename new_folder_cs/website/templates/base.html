@@ -1,0 +1,87 @@
+<!DOCTYPE html> <!--declaring the document type to be html -->
+<html>
+  <head>
+    <meta charset="utf-8" /><!--declaring the chatacter enconding to be utf-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--declares that the size of the website will be of width of device and the scale will be regular(no zoom)  -->
+    
+    <!-- link to the css bootstrap framework-->
+    <link                                                                 
+        
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous" 
+    />
+    <!-- link to the Font awesome css for icons-->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      crossorigin="anonymous"
+    />
+
+    <title>{% block title %}Home{% endblock %}</title> <!-- used to create the title of the web page-->
+  </head>
+  <body>
+        <div>
+    <nav class="navbar d-flex justify-content-center navbar-dark bg-dark" style="height: 90px;" > 
+                <!-- creating a dark bar at the top of the page that is centred ,height of bar specified to be 90 pixels long -->
+       
+           <span class ="navbar-text"> <!-- where the contents of the text in the bar will go -->
+        <font size="15px", color= 'white'> <!-- font size 15 pixels and the colour is white -->
+          {%block header%}
+          this is my page  <!-- where the content of the page header will go -->
+          {%endblock%}
+        </font>
+          </span>
+        </div>
+        {% with messages = get_flashed_messages(with_categories= true) %} 
+        <!-- assigns the messages recieved from the back end to the variable messages -->
+          {% if messages %} <!-- checks if there are messages in the variable messages-->
+            {% for message in messages %} <!-- loops through the messages in the variable messages to display them  -->
+              <div class=" alert alert-danger  fade show" role = alert > 
+               <!-- creates a red alert box that can be dismissed -->
+               {{message}}
+               </div>
+                <button type="button" class="close" data-dismiss="alert">
+                 <span aria-hidden="true">&times;</span>
+                 </button>
+               </div>
+            {%endfor%}
+          {% else %}
+           <div class="alert alert-success alter-dismissable fade show" role="alert">
+            <!-- creates a green alert box that can be dismissed -->
+            {{ message }}
+              <button type="button" class="close" data-dismiss="alert">
+              <span aria-hidden="true">&times;</span>
+              </button>
+              </div>
+          {%endif%}
+        {%endwith%}
+
+        
+        {%block page_content%}                   
+         test for my content of page <!-- where the content of the page will go -->                       
+        {%endblock%}        
+          
+
+
+    <!-- javascript libraries required for bootstrap-->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+
+  </body>
+</html>

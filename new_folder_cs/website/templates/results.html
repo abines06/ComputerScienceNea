@@ -1,0 +1,49 @@
+{%extends "base.html"%} <!-- takes the template of base.html-->
+
+{%block title%} Prediction Result {%endblock%} <!-- have changed the name of the tab to  prediction result-->
+
+{%block header%} Prediction Result {%endblock%} <!-- changed the header to start prediction-->
+
+{%block page_content%} <!-- defining the block of the page content-->
+
+<p>The predicted price for tommorow is {{ prediction }}</p>
+
+{% if calculated_result < 0 %} <!-- checks if the calculated result is less than 0-->
+    <p>You are predicted to have lost <span style="color:red;">£{{ calculated_result|abs }}</span></p> 
+    <!-- displays the message that the user is predicted to have lost money and the amount lost in red-->
+{% else %}
+    <p>You are predicted to have a profit of <span style="color: green;">£{{ calculated_result }}</span></p>
+    <!-- displays the message that the user is predicted to have made a profit and the amount made in green-->
+{% endif %}
+
+<!-- adding divisions between cells in the tables-->
+<style> 
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    </style>
+
+<table>
+    <tr>
+        <th>Date</th> <!-- defining the Date as a column name of the table-->
+        <th>Predicted</th> <!-- defining Predicted as a column name of the table-->
+        <th>Actual</th> <!-- defining Actual as a column nameof the table-->
+    </tr>
+    {% for date, predicted, actual in data %} <!-- loops through the data to display the date, predicted and actual values-->
+    <tr>
+        <td>{{ date }}</td> <!-- displays the date-->
+        <td>{{ predicted }}</td> <!-- displays the predicted value-->
+        <td>{{ actual }}</td>  <!-- displays the actual value-->
+    </tr>
+    {% endfor %}
+</table>
+
+
+
+<form method="POST" >
+    <button type="submit">go to Homepage</button>
+</form>
+
+
+{%endblock%}

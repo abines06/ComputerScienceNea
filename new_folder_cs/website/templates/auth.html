@@ -1,0 +1,27 @@
+{% extends "base.html"%} <!-- takes the template of base.html-->
+
+{% block title %}Login{% endblock %} <!-- have changed the name of the tab to Login-->
+
+{%block header%} Login page {%endblock%} <!-- changed the header to login page-->
+{%block page_content%}
+
+<form method ="post"> <!-- defining that this form will be using a post method -->
+<div class="form-outline "> <!-- defining the form field -->
+    <label class="form-label" for="loginName">Email </label><!-- characteristics of the email field -->
+    <input type="email" id="email" class="form-control" placeholder="Enter email" name = email />
+    <!-- characteristics of the email field -->
+    
+  </div>
+
+  <div class="form-outline mb-4"><!-- defining that this form will be using a post method -->
+    <label class="form-label" for="password">Password </label><!-- characteristics of the password field -->
+    <input type="password" id="password" class="form-control" placeholder="Enter password" name= Password />
+                                                              <!-- characteristics of the password field -->
+    
+  </div>
+
+  <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button> <!-- button that submits the form to the backend-->
+
+</form>
+
+{%endblock%}

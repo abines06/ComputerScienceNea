@@ -1,0 +1,45 @@
+{%extends "base.html"%} <!-- takes the template of base.html-->
+
+{%block title%} start prediction {%endblock%} <!-- have changed the name of the tab to start prediction-->
+
+{%block header%} start prediction {%endblock%} <!-- changed the header to start prediction-->
+
+{%block page_content%} <!-- defining the block of the page content-->
+
+
+
+<form method ="post" enctype="multipart/form-data"> <!-- defining that this form will be using a post method -->
+<div class="form-outline mb-4">  <!-- defining the form field -->
+  <label class="form-label" for="file-upload">Upload a file:</label> 
+  <!-- defininh yhe characteristics of the file upload field -->
+  <input type="file" id="file_upload" class="form-control" name="file_upload" >
+  <!-- defining the characteristics of the file upload field -->
+</div>
+
+<div class= "form-outline mb-4"> <!-- defining a new input field-->
+  <label class="form-label" for="quantity">quantity of shares bought:</label> 
+  <!-- defining the characteristics of the field for the quantity of shares bought -->
+  <input type="number" min="0" id="quantity" class="form-control" name="quantity" >
+  <!-- defining the characteristics of the field for the quantity of shares bought -->
+
+</div>
+
+<div class= "form-outline mb-4"> <!-- defining a new input field-->
+  <label class="form-label" for="quantity">price of share at purchase:</label> 
+  <!-- defining the characteristics of the field for the quantity of shares bought -->
+  <input type="number" min="0" id="quantity" class="form-control" name="price" >
+  <!-- defining the characteristics of the field for the quantity of shares bought -->
+
+</div>
+
+
+<button type="submit" class="btn btn-primary btn-block mb-4">submit  </button>
+<!-- button that submits the form to the backend-->
+</form>
+<p>Ensure that the file you upload is a .csv file from <a 
+  href="https://uk.finance.yahoo.com/?guccounter=1&guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&guce_referrer_sig=AQAAABKQv9cq1v78s2z4ZcwUrcJzNbFUcMuCDwa3tJp9ghqXDe7Exuuyt88Ist4naLKfNcB3KVg5aSfTnoM-eIt7tAZ5GkgGnWKMNSNnMWLJyNaEfm-Eqqs6Mxgkucu2CQovCn94rKY_4k2_mW5wK1wbAFNYR0PkwngenA6P-mBGZ0Uk">Yahoo finance</a> 
+  and has not been modified in any way or it will not be accepted.</p>
+
+<!-- text that guides the user to the yahoo finance webpage-->
+
+{%endblock%}
